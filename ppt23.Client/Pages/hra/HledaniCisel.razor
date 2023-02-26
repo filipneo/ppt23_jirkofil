@@ -1,4 +1,4 @@
-﻿@page "/hra/HledaniCisel"
+﻿@page "/"
 
 <h1>HledaniCisel</h1>
 <br>
@@ -36,7 +36,6 @@
 		if (guessInt == randomNumber)
 		{
 			gameLabel = $"Správně! Mé číslo bylo {randomNumber}";
-			GameOver();
 			return;
 		}
 
@@ -45,11 +44,6 @@
 			string hint = randomNumber < guessInt ? "menší" : "větší";
 			gameLabel = $"Mé číslo je {hint}...";
 		}
-
-	}
-
-	void GameOver()
-	{
 
 	}
 
