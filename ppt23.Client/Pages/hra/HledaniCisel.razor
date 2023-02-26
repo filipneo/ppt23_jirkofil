@@ -1,0 +1,62 @@
+﻿@page "/hra/HledaniCisel"
+
+<h1>HledaniCisel</h1>
+<br>
+
+<label>
+	Hádej číslo od 1 do 100:
+</label>
+<br><br>
+
+<input @bind-value="guess" @bind-value:event="oninput" />
+
+<button @onclick="GuessClicked" >Hádat</button>
+<br><br>
+
+<label>@gameLabel</label>
+<br><br>
+
+<button @onclick="NewGame">Nová Hra</button>
+
+@code
+{
+
+	public string gameLabel { get; set; } = "";
+	public string? guess { get; set; }
+	int randomNumber = Random.Shared.Next(1, 101);
+
+	void GuessClicked()
+	{
+		if (!int.TryParse(guess, out int guessInt))
+		{
+			gameLabel = "Zadávej jen čísla!";
+			return;
+		}
+
+		if (guessInt == randomNumber)
+		{
+			gameLabel = $"Správně! Mé číslo bylo {randomNumber}";
+			GameOver();
+			return;
+		}
+
+		else
+		{
+			string hint = randomNumber < guessInt ? "menší" : "větší";
+			gameLabel = $"Mé číslo je {hint}...";
+		}
+
+	}
+
+	void GameOver()
+	{
+
+	}
+
+	void NewGame()
+	{
+		randomNumber = Random.Shared.Next(1, 101);
+		gameLabel = "";
+	}
+
+}
