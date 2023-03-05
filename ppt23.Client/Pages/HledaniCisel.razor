@@ -1,23 +1,29 @@
-﻿@page "/hledani_cisel"
+﻿@page "/hra"
 <PageTitle>Hledání čísel | PPT3 Jirkovský</PageTitle>
 
-<h1>Hledání čísel</h1>
-<br>
+<div class="flex flex-col items-center bg-zinc-600 rounded-lg">
 
-<label>
-	Hádej číslo od 1 do 100:
-</label>
-<br><br>
+	<h3 class="font-bold text-3xl my-2">Hledání čísel</h3>
 
-<input @bind-value="guess" @bind-value:event="oninput" />
+	<label class="font-bold text-xl my-2">
+		Hádej číslo od 1 do 100:
+	</label>
 
-<button @onclick="GuessClicked" >Hádat</button>
-<br><br>
+	<label>@gameLabel</label>
 
-<label>@gameLabel</label>
-<br><br>
+	<input class="my-2 rounded-lg text-black text-center" @bind-value="guess" @bind-value:event="oninput" />
 
-<button @onclick="NewGame">Nová Hra</button>
+	<button class="bg-violet-700 hover:bg-violet-500 text-white font-bold py-1 px-10 rounded-full my-2 flex-grow"
+		@onclick="GuessClicked">
+		Hádat
+	</button>
+
+	<button class="bg-yellow-700 hover:bg-yellow-500 text-white font-bold py-1 px-7 rounded-full my-2 flex-grow"
+		@onclick="NewGame">
+		Nová Hra
+	</button>
+
+</div>
 
 @code
 {
@@ -52,6 +58,7 @@
 	{
 		randomNumber = Random.Shared.Next(1, 101);
 		gameLabel = "";
+		guess = "";
 	}
 
 }
