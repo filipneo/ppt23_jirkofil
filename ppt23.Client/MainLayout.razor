@@ -1,5 +1,30 @@
 ﻿@inherits LayoutComponentBase
 
-<main class="px-4 py-5">
-    @Body
+<main class="px-4 py-5 bg-zinc-800">
+
+	<div class="flex justify-center w-full">
+		<div class="flex justify-between items-center w-full max-w-screen-lg mx-4">
+
+			<button type="button" onclick="window.location.href='https://www.fbmi.cvut.cz/cs/home'"
+				class="bg-violet-700 hover:bg-violet-500 text-white font-bold py-3 px-6 rounded-full flex-grow mr-4 font-sans-apple-system">
+				FBMI
+			</button>
+
+			<button type="button" onclick="window.location.href='/'"
+				class="bg-green-700 hover:bg-green-500 text-white font-bold py-3 px-6 rounded-full flex-grow mx-4">
+				Home
+			</button>
+
+			<button type="button" onclick="window.location.href='/vybaveni_nemocnice'"
+				class="bg-violet-700 hover:bg-violet-500 text-white font-bold py-3 px-4 rounded-full flex-grow ml-4">
+				Vybavení nemocnice
+			</button>
+
+		</div>
+	</div>
+
 </main>
+
+<div class="bg-zinc-600 text-white">
+	@Body
+</div>
