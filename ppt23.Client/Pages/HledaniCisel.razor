@@ -1,27 +1,35 @@
 ﻿@page "/hra"
 <PageTitle>Hledání čísel | PPT3 Jirkovský</PageTitle>
 
-<div class="flex flex-col items-center bg-zinc-600 rounded-lg">
+<div class="flex flex-col items-center bg-neutral-100 text-neutral-800 shadow-xl rounded-lg">
 
 	<h3 class="font-bold text-3xl my-2">Hledání čísel</h3>
 
-	<label class="font-bold text-xl my-2">
-		Hádej číslo od 1 do 100:
-	</label>
+	<div class="flex flex-col items-center px-4 py-4">
 
-	<label>@gameLabel</label>
+		<label class="font-bold text-xl my-2">
+			Hádej číslo od 1 do 100:
+		</label>
 
-	<input class="my-2 rounded-lg text-black text-center" @bind-value="guess" @bind-value:event="oninput" />
+		<label>@gameLabel</label>
 
-	<button class="bg-violet-700 hover:bg-violet-500 text-white font-bold py-1 px-10 rounded-full my-2 flex-grow"
-		@onclick="GuessClicked">
-		Hádat
-	</button>
+		<input class="my-2 py-1 rounded-full text-black text-center"
+		@bind-value="guess" @bind-value:event="oninput" />
 
-	<button class="bg-yellow-700 hover:bg-yellow-500 text-white font-bold py-1 px-7 rounded-full my-2 flex-grow"
-		@onclick="NewGame">
-		Nová Hra
-	</button>
+		<button class="bg-[#5c2d91] hover:bg-[#7438b7] text-white font-bold border-2 border-[#5c2d91]
+			py-2 px-10 rounded-full my-2 flex-grow"
+			@onclick="GuessClicked">
+			Hádat
+		</button>
+
+		<button class="bg-neutral-100 border-2 border-[#5c2d91] text-[#5c2d91] font-bold
+			hover:bg-[#5c2d91] hover:text-white
+			py-2 px-7 rounded-full my-2 flex-grow"
+			@onclick="NewGame">
+			Nová Hra
+		</button>
+
+	</div>
 
 </div>
 

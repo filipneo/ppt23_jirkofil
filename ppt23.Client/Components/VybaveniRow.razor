@@ -1,0 +1,28 @@
+﻿
+<div>@vybaveni.Name</div>
+
+<div>@vybaveni.BoughtDateTime</div>
+
+<div>@vybaveni.LastRevision</div>
+
+<div>@vybaveni.IsRevisionNeeded</div>
+
+<div>
+    <button @onclick="() => SmazEventCallback.InvokeAsync()" 
+		class="">
+		Smazat
+	</button>
+
+	<button @onclick="() => SmazEventCallback.InvokeAsync()" 
+		class="">
+		Provést revizi
+	</button>
+
+</div>
+
+@code {
+
+	[Parameter] public VybaveniVM vybaveni { get; set; } 
+	[Parameter] public EventCallback SmazEventCallback { get; set; } 
+
+}
