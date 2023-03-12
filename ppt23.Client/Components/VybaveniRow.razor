@@ -1,28 +1,30 @@
 ﻿
-<div>@vybaveni.Name</div>
+<div>@vybaveni?.Name</div>
 
-<div>@vybaveni.BoughtDateTime</div>
+<div>@vybaveni?.BoughtDateTime.Year-@vybaveni?.BoughtDateTime.Month-@vybaveni?.BoughtDateTime.Day</div>
 
-<div>@vybaveni.LastRevision</div>
+<div>@vybaveni?.LastRevision.Year-@vybaveni?.LastRevision.Month-@vybaveni?.LastRevision.Day</div>
 
-<div>@vybaveni.IsRevisionNeeded</div>
+<div>@((vybaveni.IsRevisionNeeded) ? "Ano" : "Ne")</div>
+
+<div>
+	<button @onclick="() => RevizeEventCallback.InvokeAsync()" 
+		class="">
+		Provést revizi
+	</button>
+</div>
 
 <div>
     <button @onclick="() => SmazEventCallback.InvokeAsync()" 
 		class="">
 		Smazat
 	</button>
-
-	<button @onclick="() => SmazEventCallback.InvokeAsync()" 
-		class="">
-		Provést revizi
-	</button>
-
 </div>
 
 @code {
 
-	[Parameter] public VybaveniVM vybaveni { get; set; } 
-	[Parameter] public EventCallback SmazEventCallback { get; set; } 
+	[Parameter] public VybaveniVM? vybaveni { get; set; } 
+	[Parameter] public EventCallback RevizeEventCallback { get; set; }
+	[Parameter] public EventCallback SmazEventCallback { get; set; }
 
 }
