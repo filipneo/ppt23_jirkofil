@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 
 namespace ppt23.Client.ViewModels;
 
@@ -12,22 +13,26 @@ public class VybaveniVM
     public VybaveniVM()
     {
 		Random random = new();
-        DateTime since = new DateTime(2013, 01, 01);
+        DateTime since = new DateTime(2018, 01, 01);
 
 		Name = GetRandomName(random.Next(4,10));
         BoughtDateTime = GetRandomDate(since);
-        LastRevision = GetRandomDate(since);
+        LastRevision = GetRandomDate(BoughtDateTime);
 	}
 
     public string GetRandomName(int len)
     {
-        Random random = new();
-        const string letters = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+        Random random = new Random();
+        StringBuilder name = new StringBuilder();
 
-        return new string(Enumerable.Range(0, random.Next(len))
-            .Select(x => letters[random.Next(letters.Length)])
-            .ToArray());
-	}
+        for (int i = 0; i < len; i++)
+        {
+            char letter = (char)random.Next('a', 'z' + 1);
+            name.Append(letter);
+        }
+
+        return name.ToString();
+    }
 
     public DateTime GetRandomDate(DateTime minDate)
     {
@@ -46,7 +51,7 @@ public class VybaveniVM
 
         List<VybaveniVM> vybaveniList = new();
 
-        for (int i = 0; i < random.Next(5, 15); i++)
+        for (int i = 0; i < random.Next(4, 16); i++)
         {
             VybaveniVM vybaveni = new();
             vybaveniList.Add(vybaveni);
